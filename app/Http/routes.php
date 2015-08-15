@@ -15,6 +15,36 @@ Route::get('/', [
     'uses' => 'Auth\AuthController@getLogin'
 ]);
 
+// Protected Routes by auth and acl middleware
+$router->group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'acl']], function() use ($router)
+{
+    $router->get('dashboard', [
+        'uses' => 'DashboardController@index',
+        'as' => 'dashboard',
+        'permission' => 'manage_own_dashboard',
+        'menuItem' => ['icon' => 'fa fa-dashboard', 'title' => 'Dashboard']
+    ]);
+
+    // Group: Users
+    $router->group(['prefix' => 'users', 'namespace' => 'User'], function() use ($router)
+    {
+        $router->get('/{role?}', [
+            'uses' => 'UserController@index',
+            'as' => 'admin.users',
+            'permission' => 'view_user',
+            'menuItem' => ['icon' => 'clip-users', 'title' => 'Manage Users']
+        ])->where('role', '[a-zA-Z]+');
+
+        $router->get('view/{id}', [
+            'uses' => 'UserController@viewUserProfile',
+            'as' => 'admin.user.view',
+            'permission' => 'view_user'
+        ]);
+    });
+});
+
+Route::get('/home', 'PagesController@Home');
+
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
