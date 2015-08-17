@@ -1,4 +1,4 @@
-@extends('app')
+@extends('admin')
 
 @section('htmlheader_title')
     List
@@ -12,8 +12,6 @@
 @endsection
 
 @section('main-content')
-
-
 
     <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">

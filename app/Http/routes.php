@@ -15,11 +15,13 @@ Route::get('/', [
     'uses' => 'Auth\AuthController@getLogin'
 ]);
 
+Route::get('Admin/Index', 'Admin\AdminController@Index');
+
 // Protected Routes by auth and acl middleware
 $router->group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'acl']], function() use ($router)
 {
     $router->get('dashboard', [
-        'uses' => 'DashboardController@index',
+        'uses' => 'AdminController@index',
         'as' => 'dashboard',
         'permission' => 'manage_own_dashboard',
         'menuItem' => ['icon' => 'fa fa-dashboard', 'title' => 'Dashboard']

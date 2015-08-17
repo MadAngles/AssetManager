@@ -1,4 +1,4 @@
-@extends('app')
+@extends('admin')
 
 @section('htmlheader_title')
     Home
