@@ -16,6 +16,8 @@ Route::get('/', [
 ]);
 
 Route::get('Admin/Index', 'Admin\AdminController@Index');
+Route::get('Admin/InsertStaff', 'Admin\StaffController@Insert');
+Route::post('Admin/InsertStaff', 'Admin\StaffController@Insert');
 
 // Protected Routes by auth and acl middleware
 $router->group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'acl']], function() use ($router)
