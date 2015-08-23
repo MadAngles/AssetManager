@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class Users extends Migration {
-
+class Departments extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,15 +12,10 @@ class Users extends Migration {
      */
     public function up()
     {
-        Schema::create('users', function(Blueprint $table)
+        Schema::create('departments', function(Blueprint $table)
         {
             $table->increments('id')->unsigned();
-            $table->integer('role_id')->unsigned();
-            $table->string('email')->unique();
-            $table->string('password');
             $table->string('name');
-            $table->integer('phone');
-            $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -33,6 +28,6 @@ class Users extends Migration {
      */
     public function down()
     {
-        Schema::drop('users');
+        //
     }
 }

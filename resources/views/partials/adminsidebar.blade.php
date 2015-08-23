@@ -31,7 +31,7 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>Staff</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Manage Staff</a></li>
+                    <li><a href="{{ url('Admin/ListStaff') }}">Manage Staff</a></li>
                     <li><a href="{{ url('Admin/InsertStaff') }}">Insert Staff</a></li>
                 </ul>
             </li>

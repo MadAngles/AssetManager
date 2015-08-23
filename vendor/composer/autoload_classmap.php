@@ -12,6 +12,8 @@ return array(
     'App\\DB\\User\\Traits\\UserRelationShips' => $baseDir . '/app/DB/User/Traits/UserRelationShips.php',
     'App\\DB\\User\\Users' => $baseDir . '/app/DB/User/User.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
+    'DepartmentTableSeeder' => $baseDir . '/database/seeds/DepartmentTableSeeder.php',
+    'Departments' => $baseDir . '/database/migrations/2015_08_23_180322_departments.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
     'File_Iterator_Factory' => $vendorDir . '/phpunit/php-file-iterator/src/Factory.php',
@@ -520,5 +522,6 @@ return array(
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Resources/stubs/SessionHandlerInterface.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
+    'UserTableSeeder' => $baseDir . '/database/seeds/UserTableSeeder.php',
     'Users' => $baseDir . '/database/migrations/2015_08_15_094205_users.php',
 );
